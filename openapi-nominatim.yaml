@@ -1,0 +1,26 @@
+openapi: 3.0.0
+info:
+  title: Nominatim Geocoding
+  version: 1.0.0
+servers:
+  - url: https://nominatim.openstreetmap.org
+paths:
+  /search:
+    get:
+      summary: Search location by name
+      parameters:
+        - in: query
+          name: q
+          schema:
+            type: string
+          required: true
+          description: The place name to search
+        - in: query
+          name: format
+          schema:
+            type: string
+          required: true
+          example: json
+      responses:
+        '200':
+          description: A list of locations
